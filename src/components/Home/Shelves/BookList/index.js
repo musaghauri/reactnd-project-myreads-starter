@@ -13,7 +13,7 @@ class BookList extends Component {
                             return (
                                 <li key={`${book.title}_${bookI}`}>
                                     <Book
-                                        {...book}
+                                        book={book}
                                         onCategoryChange={onCategoryChange}
                                     />
                                 </li>
@@ -28,8 +28,8 @@ class BookList extends Component {
 
 
 BookList.propTypes = {
-    books: PropTypes.array,
-    onCategoryChange: PropTypes.func,
+    onCategoryChange: PropTypes.func.isRequired,
+    books: PropTypes.array.isRequired,
 }
 
 export default BookList

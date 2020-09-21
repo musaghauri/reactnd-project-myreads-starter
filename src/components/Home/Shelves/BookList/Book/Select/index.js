@@ -17,10 +17,10 @@ class Select extends Component {
 }
 
 Select.propTypes = {
-  options: PropTypes.array,
-  onChangeHanlder: PropTypes.func,
-  selected: PropTypes.string,
-  id: PropTypes.string,
+  options: PropTypes.array.isRequired,
+  onChangeHanlder: PropTypes.func.isRequired,
+  selected: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 }
 
 export default Select

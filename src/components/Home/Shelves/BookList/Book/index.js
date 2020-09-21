@@ -13,7 +13,8 @@ const options = [
 
 class Book extends Component {
     render() {
-        const { onCategoryChange, imageLinks, title, authors, shelf, id } = this.props;
+        const { onCategoryChange } = this.props;
+        const { imageLinks, title, authors, shelf, id  } = this.props.book;
         return (
             <div className="book">
                 <div className="book-top">
@@ -35,8 +36,8 @@ class Book extends Component {
 }
 
 Book.propTypes = {
-    book: PropTypes.object,
-    onCategoryChange: PropTypes.func,
+    book: PropTypes.object.isRequired,
+    onCategoryChange: PropTypes.func.isRequired
 }
 
 export default Book

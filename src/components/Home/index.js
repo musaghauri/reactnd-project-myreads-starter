@@ -5,29 +5,13 @@ import Shelves from './Shelves'
 import SearchButton from './SearchButton'
 
 class Home extends Component {
-    state = {
-        shelves: [
-            {
-                categoryName: 'Currently Reading',
-                categoryValue: 'currentlyReading',
-            },
-            {
-                categoryName: 'Want to Read',
-                categoryValue: 'wantToRead',
-            },
-            {
-                categoryName: 'Read',
-                categoryValue: 'read',
-            }
-        ]
-    }
 
     render() {
-        const { shelves } = this.state;
+        const { books, onCategoryChange } = this.props;
         return (
             <div className="list-books">
                 <Header />
-                <Shelves shelves={shelves} {...this.props} />
+                <Shelves books={books} onCategoryChange={onCategoryChange} />
                 <SearchButton />
             </div>
         )
@@ -35,8 +19,8 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-    onCategoryChange: PropTypes.func,
-    books: PropTypes.array,
+    onCategoryChange: PropTypes.func.isRequired,
+    books: PropTypes.array.isRequired,
 }
 
 export default Home

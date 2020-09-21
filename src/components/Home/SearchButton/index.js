@@ -11,4 +11,4 @@ class SearchButton extends Component {
     }
 }
 
-export default SearchButton
+export default SearchButton;

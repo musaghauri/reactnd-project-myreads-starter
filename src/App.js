@@ -29,11 +29,11 @@ class BooksApp extends React.Component {
     books = books.map(book => {
       if (book.id === id) book["shelf"] = categoryValue
       return book
-    })
+    });
 
     this.setState({ books }, () => {
       BooksAPI.update({ id }, categoryValue)
-    })
+    });
   }
 
   render() {
