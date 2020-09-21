@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import BookList from '../Home/Shelves/BookList'
+import Book from '../Home/Shelves/BookList/Book'
 import * as BooksAPI from '../../BooksAPI'
 
 
 class Search extends Component {
     state = {
         searchValue: '',
-        searchedBooks: []
+        searchedBooks: [],
     }
 
     hanldeSearchChange = (value) => {
         BooksAPI.search(value).then(books => {
-            console.log({books})
             if (!books) {
                 this.setState({ searchedBooks: [] })
             }
@@ -20,13 +19,9 @@ class Search extends Component {
         });
     }
 
-    handleCategoryChange = (e, id) => {
-        const { value: categoryValue } = e.target
-        BooksAPI.update({ id }, categoryValue)
-    }
-
     render() {
         const { searchedBooks } = this.state;
+        const { books, onCategoryChange } = this.props;
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -43,12 +38,33 @@ class Search extends Component {
                         <input type="text" placeholder="Search by title or author" onChange={(e) => this.hanldeSearchChange(e.target.value)} />
                     </div>
                 </div>
-                {
-                    searchedBooks.length > 0 ? (<BookList
-                        books={searchedBooks}
-                        handleCategoryChange={this.handleCategoryChange}
-                    />) : <span></span>
-                }
+                <div className="bookshelf-books mt-5">
+                    <ol className="books-grid">
+                        {
+                            searchedBooks.length > 0 ? (
+                                searchedBooks.map((book, bookI) => {
+                                    const { id: bookId } = book;
+                                    let shelf = 'none'
+                                    books.filter(book => {
+                                        if (book.id === bookId) {
+                                            shelf = book.shelf
+                                            return
+                                        }
+                                    })
+                                    return (
+                                        <li key={`${bookId}_${bookI}`}>
+                                            <Book
+                                                shelf={shelf}
+                                                onCategoryChange={onCategoryChange}
+                                                {...book}
+                                            />
+                                        </li>
+                                    );
+                                })
+                            ) : <span></span>
+                        }
+                    </ol>
+                </div>
             </div>
         )
     }

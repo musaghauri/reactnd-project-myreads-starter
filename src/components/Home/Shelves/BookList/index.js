@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Book from './Book'
 
 class BookList extends Component {
     render() {
-        const { books, handleCategoryChange } = this.props;
+        const { books, onCategoryChange } = this.props;
         return (
             <div className="bookshelf-books">
                 <ol className="books-grid">
@@ -12,8 +13,8 @@ class BookList extends Component {
                             return (
                                 <li key={`${book.title}_${bookI}`}>
                                     <Book
-                                        book={book}
-                                        handleCategoryChange={handleCategoryChange}
+                                        {...book}
+                                        onCategoryChange={onCategoryChange}
                                     />
                                 </li>
                             )
@@ -23,6 +24,12 @@ class BookList extends Component {
             </div>
         )
     }
+}
+
+
+BookList.propTypes = {
+    books: PropTypes.array,
+    onCategoryChange: PropTypes.func,
 }
 
 export default BookList

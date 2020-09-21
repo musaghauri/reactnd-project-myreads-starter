@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Header from './Header'
 import Shelves from './Shelves'
 import SearchButton from './SearchButton'
-
-import * as BooksAPI from '../../BooksAPI'
 
 class Home extends Component {
     state = {
@@ -20,42 +19,24 @@ class Home extends Component {
                 categoryName: 'Read',
                 categoryValue: 'read',
             }
-        ],
-        books: []
-        /**
-         * TODO: Instead of using this state variable to keep track of which page
-         * we're on, use the URL in the browser's address bar. This will ensure that
-         * users can use the browser's back and forward buttons to navigate between
-         * pages, as well as provide a good URL they can bookmark and share.
-         */
-    }
-    
-    componentDidMount() {
-        BooksAPI.getAll().then(books => {
-            console.log({ books })
-            this.setState({ books })
-        });
-    }
-
-    handleCategoryChange = (e, id) => {
-        const { value: categoryValue } = e.target
-        BooksAPI.update({ id }, categoryValue).then(resp => {
-            BooksAPI.getAll().then(books => {
-                this.setState({ books })
-            });
-        })
+        ]
     }
 
     render() {
-        const { shelves, books } = this.state;
+        const { shelves } = this.state;
         return (
             <div className="list-books">
                 <Header />
-                <Shelves shelves={shelves} handleCategoryChange={this.handleCategoryChange} books={books} />
+                <Shelves shelves={shelves} {...this.props} />
                 <SearchButton />
             </div>
         )
     }
+}
+
+Home.propTypes = {
+    onCategoryChange: PropTypes.func,
+    books: PropTypes.array,
 }
 
 export default Home
