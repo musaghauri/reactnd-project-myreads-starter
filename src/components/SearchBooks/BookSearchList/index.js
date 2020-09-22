@@ -8,6 +8,7 @@ class BookSearchList extends Component {
         const { searchedBooks, books, onCategoryChange  } = this.props;
         return (
             <div className="bookshelf-books mt-5">
+                {searchedBooks.error && <div className="error">No Books Available</div>}
                 <ol className="books-grid">
                     {
                         searchedBooks.length > 0 ? (
@@ -36,7 +37,10 @@ class BookSearchList extends Component {
 
 BookSearchList.propTypes = {
     onCategoryChange: PropTypes.func.isRequired,
-    searchedBooks: PropTypes.array.isRequired,
+    searchedBooks: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object
+    ]).isRequired,
     books: PropTypes.array.isRequired
 }
 

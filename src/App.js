@@ -25,7 +25,6 @@ class BooksApp extends React.Component {
 
   handleCategoryChange = (e, id) => {
     const { value: categoryValue } = e.target
-    console.log({ categoryValue })
     let { books } = this.state
     const BOOKS = books.map(book => {
       if (book.id === id) book["shelf"] = categoryValue
