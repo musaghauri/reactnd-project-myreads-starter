@@ -24,8 +24,8 @@ class SearchBooks extends Component {
         const { books, onCategoryChange } = this.props;
         return (
             <div className="search-books">
-                <SearchInput 
-                    onSearchChange={this.hanldeSearchChange} 
+                <SearchInput
+                    onSearchChange={this.hanldeSearchChange}
                 />
                 <BookSearchList
                     searchedBooks={searchedBooks}

@@ -5,7 +5,7 @@ import Book from '../../Home/Shelves/BookList/Book';
 
 class BookSearchList extends Component {
     render() {
-        const { searchedBooks, books, onCategoryChange  } = this.props;
+        const { searchedBooks, books, onCategoryChange } = this.props;
         return (
             <div className="bookshelf-books mt-5">
                 {searchedBooks.error && <div className="error">No Books Available</div>}
@@ -16,7 +16,7 @@ class BookSearchList extends Component {
                                 const { id: bookId } = book;
                                 let shelf = 'none'
                                 const isBookFound = books.filter(book => book.id === bookId);
-                                if(isBookFound.length > 0) shelf = isBookFound[0].shelf;
+                                if (isBookFound.length > 0) shelf = isBookFound[0].shelf;
                                 return (
                                     <li key={`${bookId}_${bookI}`}>
                                         <Book

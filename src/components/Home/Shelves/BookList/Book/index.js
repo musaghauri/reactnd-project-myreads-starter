@@ -13,18 +13,18 @@ const options = [
 class Book extends Component {
     render() {
         const { onCategoryChange } = this.props;
-        const { imageLinks, title, authors, shelf, id  } = this.props.book;
-        const imageStyles = { 
-            width: 128, 
-            height: 193, 
-            backgroundImage: `url(${imageLinks ? imageLinks.thumbnail : 'no_image.png'})` 
+        const { imageLinks, title, authors, shelf, id } = this.props.book;
+        const imageStyles = {
+            width: 128,
+            height: 193,
+            backgroundImage: `url(${imageLinks ? imageLinks.thumbnail : 'no_image.png'})`
         };
         return (
             <div className="book">
                 <div className="book-top">
                     <div className="book-cover" style={imageStyles}></div>
                     <div className="book-shelf-changer">
-                        <SelectBookCategory 
+                        <SelectBookCategory
                             onChangeHanlder={(e) => onCategoryChange(e, id)}
                             selected={shelf}
                             options={options}
@@ -37,8 +37,8 @@ class Book extends Component {
                     {
                         !!authors ?
                             authors.join(", ")
-                        :
-                        'No Author'
+                            :
+                            'No Author'
                     }
                 </div>
             </div>

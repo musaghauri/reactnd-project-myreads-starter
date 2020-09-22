@@ -46,7 +46,7 @@ class BooksApp extends React.Component {
               <Home books={books} onCategoryChange={this.handleCategoryChange} />
             </Route>
             <Route path="/search" >
-              <SearchBooks books={books} onCategoryChange={this.handleCategoryChange}/>
+              <SearchBooks books={books} onCategoryChange={this.handleCategoryChange} />
             </Route>
           </Switch>
         </div>
