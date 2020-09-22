@@ -14,10 +14,15 @@ class Book extends Component {
     render() {
         const { onCategoryChange } = this.props;
         const { imageLinks, title, authors, shelf, id  } = this.props.book;
+        const imageStyles = { 
+            width: 128, 
+            height: 193, 
+            backgroundImage: `url(${imageLinks ? imageLinks.thumbnail : 'no_image.png'})` 
+        };
         return (
             <div className="book">
                 <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks && imageLinks.thumbnail})` }}></div>
+                    <div className="book-cover" style={imageStyles}></div>
                     <div className="book-shelf-changer">
                         <SelectBookCategory 
                             onChangeHanlder={(e) => onCategoryChange(e, id)}
@@ -28,7 +33,14 @@ class Book extends Component {
                     </div>
                 </div>
                 <div className="book-title">{title}</div>
-                <div className="book-authors">{authors}</div>
+                <div className="book-authors">
+                    {
+                        !!authors ?
+                            authors.join(", ")
+                        :
+                        'No Author'
+                    }
+                </div>
             </div>
         )
     }
