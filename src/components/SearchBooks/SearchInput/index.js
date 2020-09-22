@@ -39,4 +39,4 @@ SearchInput.propTypes = {
     onSearchChange: PropTypes.func.isRequired
 }
 
-export default SearchInput
+export default SearchInput;

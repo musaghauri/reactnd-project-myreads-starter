@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchInput from './SearchInput';
 import BookSearchList from './BookSearchList';
-import * as BooksAPI from '../../BooksAPI'
+import * as BooksAPI from '../../BooksAPI';
 
 
 class SearchBooks extends Component {
@@ -42,4 +42,4 @@ SearchBooks.propTypes = {
     books: PropTypes.array.isRequired
 }
 
-export default SearchBooks
+export default SearchBooks;

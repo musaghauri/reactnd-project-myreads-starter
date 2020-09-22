@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import BookList from './BookList'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import BookList from './BookList';
 
 class Shelves extends Component {
 
@@ -49,4 +49,4 @@ Shelves.propTypes = {
     books: PropTypes.array.isRequired,
 }
 
-export default Shelves
+export default Shelves;

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Header from './Header'
-import Shelves from './Shelves'
-import SearchButton from './SearchButton'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Header from './Header';
+import Shelves from './Shelves';
+import SearchButton from './SearchButton';
 
 class Home extends Component {
 
@@ -23,4 +23,4 @@ Home.propTypes = {
     books: PropTypes.array.isRequired,
 }
 
-export default Home
+export default Home;
