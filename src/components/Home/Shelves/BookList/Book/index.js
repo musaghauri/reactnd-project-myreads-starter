@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-
-import Select from './Select'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import SelectBookCategory from './SelectBookCategory';
 
 const options = [
     { value: '', label: 'Move to...', disabled: true },
@@ -20,7 +19,7 @@ class Book extends Component {
                 <div className="book-top">
                     <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks && imageLinks.thumbnail})` }}></div>
                     <div className="book-shelf-changer">
-                        <Select 
+                        <SelectBookCategory 
                             onChangeHanlder={(e) => onCategoryChange(e, id)}
                             selected={shelf}
                             options={options}
@@ -40,4 +39,4 @@ Book.propTypes = {
     onCategoryChange: PropTypes.func.isRequired
 }
 
-export default Book
+export default Book;

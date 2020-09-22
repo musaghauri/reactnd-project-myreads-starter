@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import Home from './components/Home'
-import Search from './components/Search'
+import SearchBooks from './components/SearchBooks'
 
 import * as BooksAPI from './BooksAPI'
 
@@ -25,13 +25,14 @@ class BooksApp extends React.Component {
 
   handleCategoryChange = (e, id) => {
     const { value: categoryValue } = e.target
+    console.log({ categoryValue })
     let { books } = this.state
-    books = books.map(book => {
+    const BOOKS = books.map(book => {
       if (book.id === id) book["shelf"] = categoryValue
       return book
     });
 
-    this.setState({ books }, () => {
+    this.setState({ books: BOOKS }, () => {
       BooksAPI.update({ id }, categoryValue)
     });
   }
@@ -46,7 +47,7 @@ class BooksApp extends React.Component {
               <Home books={books} onCategoryChange={this.handleCategoryChange} />
             </Route>
             <Route path="/search" >
-              <Search books={books} onCategoryChange={this.handleCategoryChange}/>
+              <SearchBooks books={books} onCategoryChange={this.handleCategoryChange}/>
             </Route>
           </Switch>
         </div>

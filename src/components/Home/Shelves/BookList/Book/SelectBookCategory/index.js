@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class Select extends Component {
+class SelectBookCategory extends Component {
   render() {
     const { options, onChangeHanlder, selected, name } = this.props;
     return (
@@ -16,11 +16,11 @@ class Select extends Component {
   }
 }
 
-Select.propTypes = {
+SelectBookCategory.propTypes = {
   options: PropTypes.array.isRequired,
   onChangeHanlder: PropTypes.func.isRequired,
   selected: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 }
 
-export default Select
+export default SelectBookCategory;
