@@ -35,7 +35,7 @@ class BookSearchList extends Component {
 
 
 BookSearchList.propTypes = {
-    onSearchChange: PropTypes.func.isRequired,
+    onCategoryChange: PropTypes.func.isRequired,
     searchedBooks: PropTypes.array.isRequired,
     books: PropTypes.array.isRequired
 }
