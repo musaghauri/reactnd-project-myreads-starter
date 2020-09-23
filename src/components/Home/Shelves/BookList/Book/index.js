@@ -12,8 +12,8 @@ const options = [
 
 class Book extends Component {
     render() {
-        const { onCategoryChange } = this.props;
-        const { imageLinks, title, authors, shelf, id } = this.props.book;
+        const { onCategoryChange, book } = this.props;
+        const { imageLinks, title, authors, shelf } = book;
         const imageStyles = {
             width: 128,
             height: 193,
@@ -25,7 +25,7 @@ class Book extends Component {
                     <div className="book-cover" style={imageStyles}></div>
                     <div className="book-shelf-changer">
                         <SelectBookCategory
-                            onChangeHanlder={(e) => onCategoryChange(e, id)}
+                            onChangeHanlder={(e) => onCategoryChange(e, book)}
                             selected={shelf}
                             options={options}
                             name="category"

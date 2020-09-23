@@ -22,14 +22,22 @@ class BooksApp extends React.Component {
     this.setState({ books })
   }
 
-  handleCategoryChange = (e, id) => {
+  handleCategoryChange = (e, selectedBook) => {
+    const { id } = selectedBook;
     const { value: categoryValue } = e.target
     let { books } = this.state
-    const BOOKS = books.map(book => {
-      if (book.id === id) book["shelf"] = categoryValue
+    let isFound = false
+    let BOOKS = books.map(book => {
+      if (book.id === id) {
+        isFound = true
+        book["shelf"] = categoryValue
+      }
       return book
     });
-
+    if(!isFound) {
+      selectedBook['shelf'] = categoryValue
+      BOOKS.push(selectedBook)
+    }
     this.setState({ books: BOOKS }, () => {
       BooksAPI.update({ id }, categoryValue)
     });
