@@ -8,7 +8,7 @@ const options = [
     { value: 'wantToRead', label: 'Want to Read', disabled: false },
     { value: 'read', label: 'Read', disabled: false },
     { value: 'none', label: 'None', disabled: false },
-]
+];
 
 class Book extends Component {
     render() {
