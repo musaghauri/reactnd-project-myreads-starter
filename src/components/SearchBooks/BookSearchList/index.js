@@ -14,11 +14,9 @@ class BookSearchList extends Component {
                         searchedBooks.length > 0 ? (
                             searchedBooks.map((book, bookI) => {
                                 const { id: bookId } = book;
-                                let shelf = 'none'
-                                const isBookFound = books.filter(book => book.id === bookId);
-                                if (isBookFound.length > 0) shelf = isBookFound[0].shelf;
+                                const shelf = books.find(({ id }) => id === bookId)?.shelf ?? 'none';
                                 return (
-                                    <li key={`${bookId}_${bookI}`}>
+                                    <li key={bookId}>
                                         <Book
                                             onCategoryChange={onCategoryChange}
                                             book={Object.assign({ shelf }, book)}
@@ -26,7 +24,7 @@ class BookSearchList extends Component {
                                     </li>
                                 );
                             })
-                        ) : <span></span>
+                        ) : null
                     }
                 </ol>
             </div>

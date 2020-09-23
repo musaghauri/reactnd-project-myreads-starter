@@ -21,7 +21,7 @@ class SearchInput extends Component {
         const { searchValue } = this.state;
         return (
             <div className="search-books-bar">
-                <Link to="/"><a href="/" className="close-search">Close</a></Link>
+                <Link to="/" className="close-search">Close</Link>
                 <div className="search-books-input-wrapper">
                     <input
                         type="text"

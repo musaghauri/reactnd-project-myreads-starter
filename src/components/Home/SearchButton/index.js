@@ -5,7 +5,7 @@ class SearchButton extends Component {
     render() {
         return (
             <div className="open-search">
-                <Link to="/search"><a href="/search">Add a book</a></Link>
+                <Link to="/search">Add a book</Link>
             </div>
         )
     }
